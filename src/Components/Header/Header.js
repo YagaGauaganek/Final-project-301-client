@@ -16,29 +16,27 @@ export default function Header({ handleCartModal }) {
       <nav>
         <ul>
           <li className="navLi">
-            {" "}
-            <Link className="link" to={"/"}>
+            <Link className="link" to="/">
               Home
             </Link>
           </li>
           <li className="navLi">
-            {" "}
-            <Link className="link" to={"/about"}>
+            <Link className="link" to="/about">
               About
             </Link>
           </li>
           <li className="navLi">
-            {" "}
-            <Link className="link" to={"/gallery"}>
+            <Link className="link" to="/gallery">
               Gallery
             </Link>
           </li>
-          <li className="navLi">
-            {" "}
-            <Link className="link" to={"/contact"}>
-              Contact
-            </Link>
-          </li>
+          {user && user.email === process.env.REACT_APP_EMAIL && (
+            <li className="navLi">
+              <Link className="link" to="/admin">
+                Admin
+              </Link>
+            </li>
+          )}
         </ul>
       </nav>
       <button onClick={() => handleCartModal()}>
